@@ -5,7 +5,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 @Service
-public class ServicioMovimientoImpl implements ServicioMovimiento {
+@Transactional
+public class ServicioMovimientoImpl implements ServicioMovimiento, ServicioAgregarMovimiento {
 
     private RepositorioMovimiento repositorioMovimiento;
 
@@ -18,5 +19,10 @@ public class ServicioMovimientoImpl implements ServicioMovimiento {
     public List<Movimiento> obtenerMovimientos(Long idUsuario) {
         List<Movimiento> movimientos = repositorioMovimiento.obtenerMovimientos(idUsuario);
         return movimientos;
+    }
+    @Transactional
+    @Override
+    public void agregarMovimiento(Movimiento movimiento) {
+        repositorioMovimiento.agregarMovimiento(movimiento);
     }
 }

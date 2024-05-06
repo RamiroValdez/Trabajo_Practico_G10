@@ -6,15 +6,18 @@ import com.tallerwebi.dominio.movimiento.RepositorioMovimiento;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
+@Repository("repositorioMovimiento")
 public class RepositorioMovimientoImpl implements RepositorioMovimiento {
+
     private SessionFactory sessionFactory;
 
+    @Autowired
     public RepositorioMovimientoImpl(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
@@ -26,4 +29,11 @@ public class RepositorioMovimientoImpl implements RepositorioMovimiento {
 
         return new ArrayList<>(usuario.getMovimientos()) ;
     }
+
+    @Override
+    public void agregarMovimiento(Movimiento movimiento) {
+        sessionFactory.getCurrentSession().save(movimiento);
+    }
+
+
 }
