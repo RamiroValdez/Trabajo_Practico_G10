@@ -1,16 +1,16 @@
 package com.tallerwebi.presentacion;
 
-public class AgregarMovimiento {
+public class DatosMovimiento {
 
     private String descripcion;
     private String tipo;
     private String categoria;
     private Double monto;
 
-    public AgregarMovimiento() {
+    public DatosMovimiento() {
     }
 
-    public AgregarMovimiento(String descripcion,String categoria, String tipo, Double monto) {
+    public DatosMovimiento(String descripcion, String categoria, String tipo, Double monto) {
         this.descripcion = descripcion;
         this.tipo = tipo;
         this.monto = monto;

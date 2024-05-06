@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragments/head :: head(title='Movimientos')">
-    <link rel="stylesheet" th:href="@{/css/movimientos.css}">
+<head th:replace="fragments/head :: head(title='Agregar Movimiento')">
+
 </head>
 
 <body>
@@ -14,19 +14,21 @@
 
     <main  id="main" class="main">
         <h1>Agregar Movimiento</h1>
-        <form action="#" th:action="agregar-datos" method="POST" th:object="${agregarMovimiento}">
-            <label for="">Nombre: </label>
-            <input type="text">
-            <label for="">TIPO: </label>
-            <select id="tipoMovimiento">
+        <form action="#" th:action="@{/agregar-datos}" method="POST" th:object="${agregarMovimiento}">
+            <label for="nombre">Nombre: </label>
+            <input th:field="*{descripcion}" id="nombre" type="text">
+            <label for="tipoMovimiento">TIPO: </label>
+            <select th:field="*{tipo}" id="tipoMovimiento">
+                <option value="">Seleccione el tipo de movimiento</option>
                 <option value="INGRESO">INGRESO</option>
                 <option value="EGRESO">EGRESO</option>
             </select>
-            <select id="categoriaMovimiento">
+            <select th:field="*{categoria}" id="categoriaMovimiento">
+                <option value="">Seleccione la categoría</option>
                 <!-- Las opciones de categoría se generarán dinámicamente -->
             </select>
-            <label for="">Monto: </label>
-            <input type="number">
+            <label for="monto">Monto: </label>
+            <input th:field="*{monto}" id="monto" type="number">
             <button type="submit">Agregar</button>
         </form>
     </main>
@@ -34,5 +36,6 @@
     <footer th:replace="fragments/footer :: footer"></footer>
 
     <script type="text/javascript" th:src="@{webjars/bootstrap/5.2.0/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/agregar-mov.js}"></script>
 </body>
 </html>
