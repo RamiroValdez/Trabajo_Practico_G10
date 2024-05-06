@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/head :: head(title='Movimientos')">
+    <link rel="stylesheet" th:href="@{/css/movimientos.css}">
+</head>
+
+<body>
+<!-- Header -->
+    <header th:replace="fragments/header :: header"></header>
+
+<!-- Menu Lateral -->
+    <aside th:replace="fragments/menu-lateral :: menu-lateral"></aside>
+
+    <main  id="main" class="main">
+        <h1>Agregar Movimiento</h1>
+        <form action="#" th:action="agregar-datos" method="POST" th:object="${agregarMovimiento}">
+            <label for="">Nombre: </label>
+            <input type="text">
+            <label for="">TIPO: </label>
+            <select id="tipoMovimiento">
+                <option value="INGRESO">INGRESO</option>
+                <option value="EGRESO">EGRESO</option>
+            </select>
+            <select id="categoriaMovimiento">
+                <!-- Las opciones de categoría se generarán dinámicamente -->
+            </select>
+            <label for="">Monto: </label>
+            <input type="number">
+            <button type="submit">Agregar</button>
+        </form>
+    </main>
+
+    <footer th:replace="fragments/footer :: footer"></footer>
+
+    <script type="text/javascript" th:src="@{webjars/bootstrap/5.2.0/js/bootstrap.min.js}"></script>
+</body>
+</html>
