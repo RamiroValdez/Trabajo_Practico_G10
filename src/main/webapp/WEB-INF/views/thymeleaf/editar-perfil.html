@@ -53,7 +53,7 @@
 
                     <div class="mb-3">
                         <label class="form-label">Nombre de usuario:</label>
-                        <input th:field="*{nombreUsuario}" type="text" class="form-control" th:value="${nombreUsuario}">
+                        <input th:field="*{nombreUsuario}" type="text" class="form-control" th:value="${nombreUsuario}" id="nombre-usuario">
                         <p th:if="${errores != null && errores.get('nombreUsuario') != null}" class="alert alert-danger" th:text="${errores.get('nombreUsuario')}"></p>
                     </div>
 
